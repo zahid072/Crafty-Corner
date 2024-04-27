@@ -36,9 +36,9 @@ const SignUp = () => {
         toast.success("User successfully created");
         updateUserProfile(name, photo);
         reset();
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1000);
+        // setTimeout(() => {
+        //   navigate(location?.state ? location.state : "/");
+        // }, 1000);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -105,19 +105,20 @@ const SignUp = () => {
                     type={showPass ? "text" : "password"}
                     placeholder="password"
                     {...register("password", {
-                      required:{
+                      required: {
                         value: true,
-                        message:'password is required'
+                        message: "password is required",
                       },
                       minLength: {
                         value: 6,
                         message: "Password should be at least 6 characters",
                       },
                       pattern: {
-                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{1,}$/,
-                        message: 'Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character',
+                        value:
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{1,}$/,
+                        message:
+                          "Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character",
                       },
-                      
                     })}
                     className="input input-bordered w-full"
                     required
@@ -153,7 +154,10 @@ const SignUp = () => {
               </div>
               <p>
                 Already have an account?{" "}
-                <Link to={"/signIn"} className="text-blue-500 font-semibold underline">
+                <Link
+                  to={"/signIn"}
+                  className="text-blue-500 font-semibold underline"
+                >
                   Sign In
                 </Link>
               </p>
