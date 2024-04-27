@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -24,6 +25,12 @@ const AuthProvider = ({ children }) => {
   };
   const signInUsers = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
+  };
+  const signInWithGoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+  const signInWithGitHub = () => {
+    return signInWithPopup(auth, gitHubProvider);
   };
 
   // update profile
@@ -61,6 +68,8 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
     logOut,
     signInUsers,
+    signInWithGoogle,
+    signInWithGitHub,
   };
   return (
     <>

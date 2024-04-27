@@ -11,7 +11,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 const SignIn = () => {
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
-  const { signInUsers} =
+  const { signInUsers, signInWithGoogle, signInWithGitHub } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,6 +45,34 @@ const SignIn = () => {
         if (err.message === "Firebase: Error (auth/invalid-credential).") {
           setError("Email or password invalid");
         }
+      });
+  };
+  // google signIn
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((res) => {
+        const user = res.user;
+        toast.success("Sign in successful");
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 1000);
+      })
+      .catch((err) => {
+        console.log("google", err.message);
+      });
+  };
+  // gitHub sighIn
+  const handleGitHubSignIn = () => {
+    signInWithGitHub()
+      .then((res) => {
+        const user = res.user;
+        toast.success("Sign in successful");
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 1000);
+      })
+      .catch((err) => {
+        console.log("gitHub", err.message);
       });
   };
 
@@ -139,14 +167,14 @@ const SignIn = () => {
               </div>
               <div className="w-full flex md:flex-row flex-col gap-2 text-center font-semibold">
                 <button
-                  // onClick={handleGoogleSignIn}
+                  onClick={handleGoogleSignIn}
                   className=" w-full py-3 bg-[#9BD8D9] hover:bg-[#81c2c3eb] rounded-md flex items-center justify-center gap-2 border border-[#3e3d3d4f]"
                 >
                   <FcGoogle className="text-2xl " />
                   Google
                 </button>
                 <button
-                  // onClick={handleGitHubSignIn}
+                  onClick={handleGitHubSignIn}
                   className=" w-full py-3 bg-[#9BD8D9] hover:bg-[#81c2c3eb] rounded-md flex items-center justify-center gap-2 border border-[#3e3d3d4f]"
                 >
                   <FaGithub className="text-2xl " />
