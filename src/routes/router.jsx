@@ -7,6 +7,7 @@ import SignUp from "../pages/auth/SignUp/SignUp";
 import AddCraftItem from "../pages/addCraftItems/AddCraftItem";
 import AllArtCraftItems from "../pages/allArt&CraftItem/AllArtCraftItems";
 import MyCraftList from "../pages/myArt&CraftList/MyCraftList";
+import PrivateRouter from "./PrivateRouter";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addCraftItem",
-        element:<AddCraftItem/>,
+        element:<PrivateRouter><AddCraftItem/></PrivateRouter>,
       },
       {
         path: "/allArt&CraftItems",
