@@ -14,9 +14,9 @@ const Nav = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       {/* {user && ( */}
-        <li>
-          <NavLink to={"/addCraftItem"}>Add Craft Item</NavLink>
-        </li>
+      <li>
+        <NavLink to={"/addCraftItem"}>Add Craft Item</NavLink>
+      </li>
       {/* )} */}
       <li>
         <NavLink to={"/allArt&CraftItems"}>All Art & craft Items</NavLink>
@@ -32,7 +32,7 @@ const Nav = () => {
   );
   return (
     <>
-      <div className="navbar px-0 max-w-[1490px] mx-auto bg-base-100 mt-1">
+      <div className="navbar px-0 max-w-[1490px] mx-auto bg-[#ECEDF1]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden">
@@ -60,29 +60,29 @@ const Nav = () => {
               {user ? (
                 <button
                   onClick={handleSignOut}
-                  className="btn md:hidden mt-2 block bg-emerald-400 hover:bg-emerald-600 hover:text-white"
+                  className="btn md:hidden mt-2 block bg-[#30424E] hover:bg-[#435b6b] text-white"
                 >
                   Sign Out
                 </button>
               ) : (
                 <div className="flex gap-2 items-center mt-3">
-                <Link to={"/signIn"}>
-                  <button className="btn block bg-emerald-400 hover:bg-emerald-600 hover:text-white md:hidden">
-                    Sign In
-                  </button>
-                </Link>
-                <Link to={"/signUp"}>
-                  <button className="btn block bg-emerald-400 hover:bg-emerald-600 hover:text-white md:hidden">
-                    Sign Up
-                  </button>
-                </Link>
-                 </div>
+                  <Link to={"/signIn"}>
+                    <button className="btn block bg-[#5C8392] hover:bg-[#587987] text-white md:hidden">
+                      Sign In
+                    </button>
+                  </Link>
+                  <Link to={"/signUp"}>
+                    <button className="btn block bg-[#30424E]  text-white md:hidden">
+                      Sign Up
+                    </button>
+                  </Link>
+                </div>
               )}
             </ul>
           </div>
 
           <a className="btn btn-ghost text-3xl font-bold">Crafty Corner</a>
-{/* 
+          {/* 
           <img
             src="https://i.ibb.co/dcCKMfF/estate-logo.png"
             className="lg:h-20 h-12"
@@ -114,24 +114,23 @@ const Nav = () => {
               {user ? (
                 <button
                   onClick={handleSignOut}
-                  className="btn hidden md:block bg-emerald-400 hover:bg-emerald-600 hover:text-white"
+                  className="btn hidden md:block bg-[#30424E] hover:bg-[#435b6b] text-white"
                 >
                   Sign Out
                 </button>
               ) : (
-
-                 <div className="md:flex gap-2 items-center">
-                <Link to={"/signIn"}>
-                  <button className="btn hidden bg-emerald-400 hover:bg-emerald-600 hover:text-white md:block">
-                    Sign In
-                  </button>
-                </Link>
-                <Link to={"/signUp"}>
-                  <button className="btn hidden bg-emerald-400 hover:bg-emerald-600 hover:text-white md:block">
-                    Sign Up
-                  </button>
-                </Link>
-                 </div>
+                <div className="md:flex gap-2 items-center">
+                  <Link to={"/signIn"}>
+                    <button className="btn hidden bg-[#5C8392] hover:bg-[#587987] text-white md:block">
+                      Sign In
+                    </button>
+                  </Link>
+                  <Link to={"/signUp"}>
+                    <button className="btn hidden bg-[#30424E] hover:bg-[#435b6b] text-white md:block">
+                      Sign Up
+                    </button>
+                  </Link>
+                </div>
               )}
             </>
           ) : (

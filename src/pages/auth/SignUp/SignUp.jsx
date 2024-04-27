@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const SignUp = () => {
   const [defaultError, setDefaultError] = useState("");
