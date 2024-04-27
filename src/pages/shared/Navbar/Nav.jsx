@@ -81,13 +81,8 @@ const Nav = () => {
             </ul>
           </div>
 
-          <a className="btn btn-ghost text-3xl font-bold">Crafty Corner</a>
-          {/* 
-          <img
-            src="https://i.ibb.co/dcCKMfF/estate-logo.png"
-            className="lg:h-20 h-12"
-            alt=""
-          /> */}
+          <a className="btn btn-ghost md:text-3xl text-xl font-bold">Crafty Corner</a>
+          
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu font-semibold menu-horizontal px-1">{navLink}</ul>

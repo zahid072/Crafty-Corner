@@ -55,9 +55,9 @@ const SignUp = () => {
         <title>Sign Up || Universal Estate</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content w-full md:w-[600px]">
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div className="hero min-h-screen bg-[#30424E]">
+        <div className="hero-content w-full md:w-[800px]">
+          <div className="card shrink-0 w-full max-w-3xl shadow-2xl bg-[#ECEDF1]">
             <form onSubmit={handleSubmit(submit)} className="card-body">
               <h1 className="text-3xl font-bold text-center">Sign Up</h1>
               <div className="form-control">
@@ -147,7 +147,7 @@ const SignUp = () => {
                 <p className="text-red-500">{defaultError}</p>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary text-xl text-white">
+                <button className="btn bg-[#30424E] hover:bg-[#3d5260] text-xl text-white">
                   Sign Up
                 </button>
               </div>
