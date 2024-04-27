@@ -11,7 +11,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 const SignIn = () => {
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
-  const { signInUsers, signInWithGoogle, signInWithGitHub } =
+  const { signInUsers} =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +31,7 @@ const SignIn = () => {
     const email = data.email;
     const password = data.password;
     setError("");
- 
+
     // email and password sign in
     signInUsers(email, password)
       .then(() => {
@@ -47,34 +47,7 @@ const SignIn = () => {
         }
       });
   };
-  // google signIn
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then((res) => {
-        const user = res.user;
-        toast.success("Sign in successful");
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1000);
-      })
-      .catch((err) => {
-        console.log("google", err.message);
-      });
-  };
-  // gitHub sighIn
-  const handleGitHubSignIn = () => {
-    signInWithGitHub()
-      .then((res) => {
-        const user = res.user;
-        toast.success("Sign in successful");
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1000);
-      })
-      .catch((err) => {
-        console.log("gitHub", err.message);
-      });
-  };
+
   return (
     <>
       <Helmet>
@@ -103,7 +76,11 @@ const SignIn = () => {
                     })}
                     className="input input-bordered"
                   />
-                  <>{errors.email && <p className="text-red-500">{errors.email.message}</p>}</>
+                  <>
+                    {errors.email && (
+                      <p className="text-red-500">{errors.email.message}</p>
+                    )}
+                  </>
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -137,7 +114,11 @@ const SignIn = () => {
                       )}
                     </div>
                   </div>
-                  <>{errors.password && <p className="text-red-500">{errors.password.message}</p>}</>
+                  <>
+                    {errors.password && (
+                      <p className="text-red-500">{errors.password.message}</p>
+                    )}
+                  </>
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?
@@ -150,35 +131,37 @@ const SignIn = () => {
                     Sign In
                   </button>
                 </div>
-                
               </form>
               <div className="w-full flex items-center gap-1">
                 <span className="h-[1.5px] w-full bg-[#43414198]"></span>
                 <p className="text-nowrap font-bold text-[#43414198]">Or</p>
                 <span className="h-[1.5px] w-full bg-[#43414198]"></span>
               </div>
-             <div className="w-full flex md:flex-row flex-col gap-2 text-center font-semibold">
-             <button
-                onClick={handleGoogleSignIn}
-                className=" w-full py-3 bg-[#9BD8D9] hover:bg-[#81c2c3eb] rounded-md flex items-center justify-center gap-2 border border-[#3e3d3d4f]"
-              >
-                <FcGoogle className="text-2xl " />
-                Google
-              </button>
-              <button
-                onClick={handleGitHubSignIn}
-                className=" w-full py-3 bg-[#9BD8D9] hover:bg-[#81c2c3eb] rounded-md flex items-center justify-center gap-2 border border-[#3e3d3d4f]"
-              >
-                <FaGithub className="text-2xl " />
-                GitHub
-              </button>
-             </div>
-             <p>
-                  Don't have an account?{" "}
-                  <Link to={"/signUp"} className="text-blue-500 font-semibold underline">
-                    Sign Up
-                  </Link>
-                </p>
+              <div className="w-full flex md:flex-row flex-col gap-2 text-center font-semibold">
+                <button
+                  // onClick={handleGoogleSignIn}
+                  className=" w-full py-3 bg-[#9BD8D9] hover:bg-[#81c2c3eb] rounded-md flex items-center justify-center gap-2 border border-[#3e3d3d4f]"
+                >
+                  <FcGoogle className="text-2xl " />
+                  Google
+                </button>
+                <button
+                  // onClick={handleGitHubSignIn}
+                  className=" w-full py-3 bg-[#9BD8D9] hover:bg-[#81c2c3eb] rounded-md flex items-center justify-center gap-2 border border-[#3e3d3d4f]"
+                >
+                  <FaGithub className="text-2xl " />
+                  GitHub
+                </button>
+              </div>
+              <p>
+                Don't have an account?{" "}
+                <Link
+                  to={"/signUp"}
+                  className="text-blue-500 font-semibold underline"
+                >
+                  Sign Up
+                </Link>
+              </p>
             </div>
           </div>
         </div>
