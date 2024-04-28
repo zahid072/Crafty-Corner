@@ -6,8 +6,8 @@ import { Tooltip } from "react-tooltip";
 const DefaultCard = ({ crafts }) => {
   return (
     <div>
-      <div className="card md:w-96 w-72  bg-base-100 shadow-xl">
-        <figure className="bg-blue-gray-100">
+      <div data-theme="light" className="card md:w-96 w-72 bg-base-100 shadow-xl">
+        <figure className="bg-gray-200">
           <img src={crafts.image} alt="craft" className="md:h-60 h-48 rounded-t" />
         </figure>
         <div className="card-body">
@@ -20,7 +20,7 @@ const DefaultCard = ({ crafts }) => {
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content={`${crafts.item_name} Details`}
                 data-tooltip-place="top"
-                className="btn bg-[#9BD8D9] hover:bg-[#7fbfc0]"
+                className="btn bg-[#9BD8D9] text-black hover:bg-[#7fbfc0]"
               >
                 View Details
               </button>

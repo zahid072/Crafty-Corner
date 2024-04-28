@@ -56,12 +56,12 @@ const AddCraftItem = () => {
         <title>Add Craft Item || Crafty Corner</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="bg-[#ECEDF1] ">
-        <h2 className="lg:text-5xl md:text-4xl text-2xl font-bold text-center py-24 bg-gradient-to-r transition from-[#5C8392] to-[#9BD8D9] rounded">
+      <div data-theme="light" className="bg-[#ECEDF1] ">
+        <h2 className="lg:text-5xl md:text-4xl text-2xl text-black font-bold text-center py-24 bg-gradient-to-r transition from-[#5C8392] to-[#9BD8D9] rounded">
           Add Art & Craft
         </h2>
         <form
-          className="md:px-24 px-2 md:py-10 py-5"
+          className="md:px-24 px-2 md:py-10 py-5 text-black"
           onSubmit={handleAddCoffee}
         >
           <div className="md:flex md:mb-8">
@@ -75,7 +75,7 @@ const AddCraftItem = () => {
                   name="name"
                   required
                   placeholder="Item Name"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>
@@ -118,7 +118,7 @@ const AddCraftItem = () => {
                   </option>
                   <option
                     className="text-black bg-gray-100 "
-                    value="Oil Painting"
+                    value="Oil  bg-whitePainting"
                   >
                     Oil Painting
                   </option>
@@ -152,7 +152,7 @@ const AddCraftItem = () => {
                   name="details"
                   required
                   placeholder="Short Description"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>
@@ -166,7 +166,7 @@ const AddCraftItem = () => {
                   name="price"
                   required
                   placeholder="Price"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>
@@ -182,7 +182,7 @@ const AddCraftItem = () => {
                   name="rating"
                   required
                   placeholder="Ratings"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>
@@ -196,7 +196,7 @@ const AddCraftItem = () => {
                   name="customization"
                   required
                   placeholder="Yes or No"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>
@@ -214,7 +214,7 @@ const AddCraftItem = () => {
                   name="processing_time"
                   required
                   placeholder="Processing Time?"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>
@@ -228,7 +228,7 @@ const AddCraftItem = () => {
                   name="stock"
                   required
                   placeholder="Stock status"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>
@@ -245,7 +245,7 @@ const AddCraftItem = () => {
                   name="photo"
                   required
                   placeholder="Photo URL"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                 />
               </label>
             </div>

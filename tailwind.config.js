@@ -5,8 +5,6 @@ export default withMT ({
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {},
-  },
+  theme: ["light", "dark", "cupcake"],
   plugins: [require("daisyui")],
 })

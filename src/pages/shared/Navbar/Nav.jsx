@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
-const Nav = () => {
+const Nav = ({ themes, handleThemeToggle }) => {
   const { user, navLoader, logOut } = useContext(AuthContext);
 
   const handleSignOut = () => {
@@ -83,14 +84,31 @@ const Nav = () => {
             </ul>
           </div>
 
-          <a className="btn btn-ghost md:text-3xl text-xl font-bold">
+          <a className="btn btn-ghost md:text-3xl text-black text-xl font-bold">
             Crafty Corner
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu font-semibold menu-horizontal ">{navLink}</ul>
+          <ul className="menu font-semibold menu-horizontal text-black">
+            {navLink}
+          </ul>
         </div>
         <div className="navbar-end">
+          <div
+            onClick={handleThemeToggle}
+            className="mr-4 text-3xl cursor-pointer"
+          >
+            {themes === "light" && (
+              <div className="border rounded-full pr-8 px-2 py-1 border-black">
+                <MdOutlineLightMode className="size-5"/>
+              </div>
+            )}
+            {themes === "dark" && (
+              <div className="border rounded-full pl-8 pr-2 py-1 border-black">
+              <MdDarkMode className="size-5 text-black"/>
+              </div>
+            )}
+          </div>
           {!navLoader ? (
             <>
               {user && (
@@ -99,7 +117,7 @@ const Nav = () => {
                   data-tip={user?.displayName}
                 >
                   <img
-                    className="size-12 cursor-pointer rounded-full mr-5"
+                    className="size-12 cursor-pointer rounded-full md:mr-5"
                     src={
                       (user?.photoURL && user?.photoURL) ||
                       "https://static.vecteezy.com/system/resources/thumbnails/019/879/186/small/user-icon-on-transparent-background-free-png.png"
