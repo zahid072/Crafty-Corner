@@ -13,17 +13,19 @@ const Nav = () => {
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      {/* {user && ( */}
-      <li>
-        <NavLink to={"/addCraftItem"}>Add Craft Item</NavLink>
-      </li>
-      {/* )} */}
+      {user && (
+        <li>
+          <NavLink to={"/addCraftItem"}>Add Craft Item</NavLink>
+        </li>
+      )}
       <li>
         <NavLink to={"/allArt&CraftItems"}>All Art & craft Items</NavLink>
       </li>
-      <li>
-        <NavLink to={"/myArt&CraftList"}>My Art & Craft List</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to={"/myArt&CraftList"}>My Art & Craft List</NavLink>
+        </li>
+      )}
 
       <li>
         <NavLink to={"/contact"}>Contact</NavLink>
@@ -81,8 +83,9 @@ const Nav = () => {
             </ul>
           </div>
 
-          <a className="btn btn-ghost md:text-3xl text-xl font-bold">Crafty Corner</a>
-          
+          <a className="btn btn-ghost md:text-3xl text-xl font-bold">
+            Crafty Corner
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu font-semibold menu-horizontal ">{navLink}</ul>
@@ -96,7 +99,7 @@ const Nav = () => {
                   data-tip={user?.displayName}
                 >
                   <img
-                    className="size-12 cursor-pointer rounded-full "
+                    className="size-12 cursor-pointer rounded-full mr-5"
                     src={
                       (user?.photoURL && user?.photoURL) ||
                       "https://static.vecteezy.com/system/resources/thumbnails/019/879/186/small/user-icon-on-transparent-background-free-png.png"

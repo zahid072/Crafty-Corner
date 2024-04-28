@@ -9,7 +9,7 @@ import AllArtCraftItems from "../pages/allArt&CraftItem/AllArtCraftItems";
 import MyCraftList from "../pages/myArt&CraftList/MyCraftList";
 import PrivateRouter from "./PrivateRouter";
 import CategoryCraft from "../pages/categoryCraft/CategoryCraft";
-
+import CraftDetails from "../pages/CraftDetails/CraftDetails";
 
 const router = createBrowserRouter([
   {
@@ -22,32 +22,43 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element:<Contact/>,
+        element: <Contact />,
       },
       {
         path: "/addCraftItem",
-        element:<PrivateRouter><AddCraftItem/></PrivateRouter>,
+        element: (
+          <PrivateRouter>
+            <AddCraftItem />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/allArt&CraftItems",
-        element:<AllArtCraftItems/>,
+        element: <AllArtCraftItems />,
       },
       {
         path: "/myArt&CraftList",
-        element:<MyCraftList/>,
+        element: <MyCraftList />,
       },
       {
         path: "/signIn",
-        element:<SignIn/>,
+        element: <SignIn />,
       },
       {
         path: "/signUp",
-        element:<SignUp/>,
+        element: <SignUp />,
       },
       {
         path: "/categoryCraft/:cateName",
-        element:<CategoryCraft/>,
-        
+        element: <CategoryCraft />,
+      },
+      {
+        path: "/craftDetails/:id",
+        element: (
+          <PrivateRouter>
+            <CraftDetails />
+          </PrivateRouter>
+        ),
       },
     ],
   },

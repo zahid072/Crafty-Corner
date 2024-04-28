@@ -8,7 +8,7 @@ import DefaultCard from "../../components/defaultCard/DefaultCard";
 const Home = () => {
   const [subCategoryData, setSubCategoryData] = useState([]);
   const [sortedData, setSortedData] = useState([]);
-  const {data}= useFetchData();
+  const {data, loader}= useFetchData();
   // new arrivals data
   useEffect(() => {
     const sorted = data.sort((a, b) => {
@@ -39,6 +39,7 @@ const Home = () => {
           <h1 className="md:py-14 pt-10 pb-5 text-center md:text-4xl text-2xl font-medium">
             Browse by Category
           </h1>
+            {loader && <svg className='mx-auto' version="1.1" id="L1"  x="0px" y="0px" width="160px" height="160px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve"><circle fill="none" stroke="black" strokeWidth="6" strokeLinecap="round" strokeMiterlimit="15" strokeDasharray="14.2472,14.2472" cx="50" cy="50" r="47"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform></circle><circle fill="none" stroke="black" strokeWidth="1" strokeLinecap="round" strokeMiterlimit="10" strokeDasharray="10,10" cx="50" cy="50" r="39"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform></circle><g fill="black"><rect x="30" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.1"></animateTransform></rect><rect x="40" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.2"></animateTransform></rect><rect x="50" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3"></animateTransform></rect><rect x="60" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.4"></animateTransform></rect><rect x="70" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.5"></animateTransform></rect></g></svg>}
           <div className="w-full flex gap-5 justify-center flex-wrap">
             {subCategoryData.map((subCategory) => (
               <CategoryCard key={subCategory._id} subCategory={subCategory} />
@@ -46,8 +47,9 @@ const Home = () => {
           </div>
         </div>
         <div className="md:max-w-7xl lg:mx-auto mx-2">
-          <h1 className="md:py-14 pt-10 pb-5 text-center md:text-4xl text-2xl font-medium">New Arrivals</h1>
-          <div className="grid lg:grid-cols-3 justify-items-center md:grid-cols-2 grid-cols-1 gap-5">
+          <h1 className="md:py-14 pt-10 pb-5 text-center md:text-4xl text-2xl font-medium">Craft item</h1>
+          {loader && <svg className='mx-auto' version="1.1" id="L1"  x="0px" y="0px" width="160px" height="160px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve"><circle fill="none" stroke="black" strokeWidth="6" strokeLinecap="round" strokeMiterlimit="15" strokeDasharray="14.2472,14.2472" cx="50" cy="50" r="47"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform></circle><circle fill="none" stroke="black" strokeWidth="1" strokeLinecap="round" strokeMiterlimit="10" strokeDasharray="10,10" cx="50" cy="50" r="39"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s" from="0 50 50" to="-360 50 50" repeatCount="indefinite"></animateTransform></circle><g fill="black"><rect x="30" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.1"></animateTransform></rect><rect x="40" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.2"></animateTransform></rect><rect x="50" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3"></animateTransform></rect><rect x="60" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.4"></animateTransform></rect><rect x="70" y="35" width="5" height="30"><animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.5"></animateTransform></rect></g></svg>}
+          <div className="grid lg:grid-cols-3 justify-items-center grid-cols-1 gap-5">
               {
                 sortedData.map(crafts => <DefaultCard key={crafts._id} crafts={crafts}/>)
               }
