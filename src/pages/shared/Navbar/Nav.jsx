@@ -20,7 +20,7 @@ const Nav = ({ themes, handleThemeToggle }) => {
         </li>
       )}
       <li>
-        <NavLink to={"/allArt&CraftItems"}>All Art & craft Items</NavLink>
+        <NavLink to={"/allArt&CraftItems"}>All Art & craft</NavLink>
       </li>
       {user && (
         <li>

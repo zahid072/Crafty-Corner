@@ -50,7 +50,7 @@ const Footer = () => {
           <Link to={"/contact"} className="link link-hover">
             Contact
           </Link>
-          <Link to={"/favorite"} className="link link-hover">
+          <Link to={"/allArt&CraftItems"} className="link link-hover">
             All Art & Craft
           </Link>
           <Link to={"/signIn"} className="link link-hover">

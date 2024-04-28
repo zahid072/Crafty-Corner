@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const AddCraftItem = () => {
-  const [subcategory_Name, setSubcategory_Name] = useState("Landscape_Painting");
+  const [subcategory_Name, setSubcategory_Name] =
+    useState("Landscape_Painting");
+  const { user } = useContext(AuthContext);
+  
   const handleAddCoffee = (event) => {
     event.preventDefault();
 
@@ -17,6 +21,9 @@ const AddCraftItem = () => {
     const short_description = form.details.value;
     const image = form.photo.value;
     const stockStatus = form.stock.value;
+    const user_name = user.displayName
+    const email = user.email
+   
 
     const newArt = {
       image,
@@ -28,6 +35,8 @@ const AddCraftItem = () => {
       customization,
       short_description,
       stockStatus,
+      user_name,
+      email
     };
 
     console.log(newArt);
@@ -43,9 +52,9 @@ const AddCraftItem = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.insertedId){
-           toast.success("Successfully added")
-           form.reset()
+        if (data.insertedId) {
+          toast.success("Successfully added");
+          form.reset();
         }
       });
   };
@@ -92,10 +101,7 @@ const AddCraftItem = () => {
                   required
                   className="px-3 py-3 w-full bg-[#ffffff] rounded-lg  outline-none text-black font-semibold"
                 >
-                  <option
-                    className="text-black bg-gray-100"
-                    value=""
-                  >
+                  <option className="text-black bg-gray-100" value="">
                     Select Sub Category
                   </option>
                   <option
@@ -118,7 +124,7 @@ const AddCraftItem = () => {
                   </option>
                   <option
                     className="text-black bg-gray-100 "
-                    value="Oil  bg-whitePainting"
+                    value="Oil Painting"
                   >
                     Oil Painting
                   </option>
@@ -257,7 +263,7 @@ const AddCraftItem = () => {
           />
         </form>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

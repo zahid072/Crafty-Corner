@@ -51,9 +51,7 @@ const Sliders = () => {
                   </Link>
                 </h1>
                 <div className="md:flex md:gap-8 gap-6 items-center text-white text-xl font-semibold mt-4 animate__animated animate__fadeInUp ">
-                  <p className="md:mb-0 mb-5 w-[112px] text-center bg-[#5C8392] rounded">
-                    {arts_craft.stockStatus}
-                  </p>
+                  
                   <p className="flex gap-2 md:text-2xl text-sm items-center">
                     Ratings: <FaStar />
                     {arts_craft.rating}
