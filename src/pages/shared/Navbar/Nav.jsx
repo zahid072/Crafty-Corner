@@ -58,6 +58,21 @@ const Nav = ({ themes, handleThemeToggle }) => {
               tabIndex={0}
               className="menu menu-sm font-semibold dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
+              <div
+                onClick={handleThemeToggle}
+                className="mr-4 text-3xl cursor-pointer min-[375px]:hidden block w-[61.5px]"
+              >
+                {themes === "light" && (
+                  <div className="border rounded-full pr-8 px-2 py-1 border-black">
+                    <MdOutlineLightMode className="size-5" />
+                  </div>
+                )}
+                {themes === "dark" && (
+                  <div className="border rounded-full pl-8 pr-2 py-1 border-white bg-slate-200">
+                    <MdDarkMode className="size-5 text-black" />
+                  </div>
+                )}
+              </div>
               {navLink}
 
               {user ? (
@@ -96,16 +111,16 @@ const Nav = ({ themes, handleThemeToggle }) => {
         <div className="navbar-end">
           <div
             onClick={handleThemeToggle}
-            className="mr-4 text-3xl cursor-pointer"
+            className="mr-4 text-3xl cursor-pointer max-[375px]:hidden block"
           >
             {themes === "light" && (
               <div className="border rounded-full pr-8 px-2 py-1 border-black">
-                <MdOutlineLightMode className="size-5"/>
+                <MdOutlineLightMode className="size-5" />
               </div>
             )}
             {themes === "dark" && (
               <div className="border rounded-full pl-8 pr-2 py-1 border-black">
-              <MdDarkMode className="size-5 text-black"/>
+                <MdDarkMode className="size-5 text-black" />
               </div>
             )}
           </div>
