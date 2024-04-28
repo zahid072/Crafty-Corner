@@ -14,7 +14,7 @@ const Home = () => {
     const sorted = data.sort((a, b) => {
         return b.rating - a.rating;
     });
-    setSortedData(sorted.slice(0, 8))
+    setSortedData(sorted.slice(0, 9))
   }, [data]);
  
   // category data
@@ -47,7 +47,7 @@ const Home = () => {
         </div>
         <div className="md:max-w-7xl lg:mx-auto mx-2">
           <h1 className="md:py-14 pt-10 pb-5 text-center md:text-4xl text-2xl font-medium">New Arrivals</h1>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+          <div className="grid lg:grid-cols-3 justify-items-center md:grid-cols-2 grid-cols-1 gap-5">
               {
                 sortedData.map(crafts => <DefaultCard key={crafts._id} crafts={crafts}/>)
               }
