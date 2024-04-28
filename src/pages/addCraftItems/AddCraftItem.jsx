@@ -100,19 +100,19 @@ const AddCraftItem = () => {
                   </option>
                   <option
                     className="text-black bg-gray-100"
-                    value="Landscape_Painting"
+                    value="Landscape Painting"
                   >
                     Landscape Painting
                   </option>
                   <option
                     className="text-black bg-gray-100"
-                    value="Portrait_Drawing"
+                    value="Portrait Drawing"
                   >
                     Portrait Drawing
                   </option>
                   <option
                     className="text-black bg-gray-100 "
-                    value="Watercolour_Painting"
+                    value="Watercolour Painting"
                   >
                     Watercolour Painting
                   </option>
@@ -124,13 +124,13 @@ const AddCraftItem = () => {
                   </option>
                   <option
                     className="text-black bg-gray-100 "
-                    value="Charcoal_Sketching"
+                    value="Charcoal Sketching"
                   >
                     Charcoal Sketching
                   </option>
                   <option
                     className="text-black bg-gray-100 "
-                    value="Cartoon_Drawing"
+                    value="Cartoon Drawing"
                   >
                     Cartoon Drawing
                   </option>

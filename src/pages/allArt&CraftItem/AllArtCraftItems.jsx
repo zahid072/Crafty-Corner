@@ -1,7 +1,9 @@
-import React from 'react'
+
 import { Helmet } from 'react-helmet'
 
+
 const AllArtCraftItems = () => {
+  
   return (
     <>
     <Helmet>
@@ -9,7 +11,7 @@ const AllArtCraftItems = () => {
         <title>All Art & Craft Item || Crafty Corner</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      
+    
     </>
   )
 }

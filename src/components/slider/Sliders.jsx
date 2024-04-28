@@ -68,7 +68,7 @@ const Sliders = () => {
         ))}
       </Swiper>
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
-        <div className="flex md:w-[60vw] w-28 justify-between">
+        <div className="flex md:w-[90vw] w-28 justify-between">
           <div className="swiper-button-prev swiperBtn font-bold text-white bg-[#5C8392] hover:bg-emerald-500 transition h-16 px-3 rounded"></div>
           <div className="swiper-button-next swiperBtn font-bold text-white bg-[#5C8392] hover:bg-emerald-500 transition h-16 px-3 rounded"></div>
         </div>
