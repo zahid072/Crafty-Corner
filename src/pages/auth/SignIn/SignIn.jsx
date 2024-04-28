@@ -80,7 +80,7 @@ const SignIn = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Sign In || Universal Estate</title>
+        <title>Sign In || Crafty Corner</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="hero min-h-screen bg-[#5C8392]">

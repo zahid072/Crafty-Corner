@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddCraftItem = () => {
-  const [subcategory_Name, setSubcategory_Name] = useState("");
+  const [subcategory_Name, setSubcategory_Name] = useState("Landscape_Painting");
   const handleAddCoffee = (event) => {
     event.preventDefault();
 
@@ -41,18 +43,19 @@ const AddCraftItem = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        // if(data.insertedId){
-        //     Swal.fire({
-        //         title: 'Success!',
-        //         text: 'Coffee Added Successfully',
-        //         icon: 'success',
-        //         confirmButtonText: 'Cool'
-        //       })
-        // }
+        if(data.insertedId){
+           toast.success("Successfully added")
+           form.reset()
+        }
       });
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Add Craft Item || Crafty Corner</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="bg-[#ECEDF1] ">
         <h2 className="lg:text-5xl md:text-4xl text-2xl font-bold text-center py-24 bg-gradient-to-r transition from-[#5C8392] to-[#9BD8D9] rounded">
           Add Art & Craft
@@ -86,8 +89,15 @@ const AddCraftItem = () => {
                     setSubcategory_Name(e.target.value);
                   }}
                   name="category"
+                  required
                   className="px-3 py-3 w-full bg-[#ffffff] rounded-lg  outline-none text-black font-semibold"
                 >
+                  <option
+                    className="text-black bg-gray-100"
+                    value=""
+                  >
+                    Select Sub Category
+                  </option>
                   <option
                     className="text-black bg-gray-100"
                     value="Landscape_Painting"
@@ -242,11 +252,12 @@ const AddCraftItem = () => {
           </div>
           <input
             type="submit"
-            value="Add Coffee"
+            value="Add Craft"
             className="btn btn-block bg-[#5C8392] hover:bg-[#587987] text-white"
           />
         </form>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

@@ -53,7 +53,7 @@ const SignUp = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Sign Up || Universal Estate</title>
+        <title>Sign Up || Crafty Corner</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="hero min-h-screen bg-[#30424E]">
