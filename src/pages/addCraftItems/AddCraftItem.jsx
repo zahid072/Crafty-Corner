@@ -118,7 +118,7 @@ const AddCraftItem = () => {
                   </option>
                   <option
                     className="text-black bg-gray-100 "
-                    value="Oil_Painting"
+                    value="Oil Painting"
                   >
                     Oil Painting
                   </option>

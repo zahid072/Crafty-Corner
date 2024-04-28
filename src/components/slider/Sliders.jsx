@@ -45,7 +45,7 @@ const Sliders = () => {
                   {" "}
                   <Link
                     className="leading-snug "
-                    to={`/estateDetails/${arts_craft._id}`}
+                    to={`/craftDetails/${arts_craft._id}`}
                   >
                     {arts_craft.item_name}
                   </Link>
