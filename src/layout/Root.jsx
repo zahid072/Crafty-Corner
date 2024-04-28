@@ -6,7 +6,7 @@ import Footer from "../pages/shared/footer/Footer";
 const Root = () => {
   return (
     <div>
-      <div className="bg-[#ECEDF1] py-1">
+      <div className="bg-[#ECEDF1] py-1 w-full">
         <Nav />
       </div>
       <div>

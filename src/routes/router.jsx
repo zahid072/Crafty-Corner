@@ -8,6 +8,7 @@ import AddCraftItem from "../pages/addCraftItems/AddCraftItem";
 import AllArtCraftItems from "../pages/allArt&CraftItem/AllArtCraftItems";
 import MyCraftList from "../pages/myArt&CraftList/MyCraftList";
 import PrivateRouter from "./PrivateRouter";
+import CategoryCraft from "../pages/categoryCraft/CategoryCraft";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element:<SignUp/>,
+      },
+      {
+        path: "/categoryCraft/:cateName",
+        element:<CategoryCraft/>,
+        
       },
     ],
   },

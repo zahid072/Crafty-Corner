@@ -71,7 +71,7 @@ const Footer = () => {
             </h1>
             <div className="md:mt-6 mt-4 flex md:gap-5 gap-2">
               <input
-                className="input bg-transparent border border-[#5C8392] focus:border-[#5C8392] "
+                className="input lg:w-80 w-40 bg-transparent border border-[#5C8392] focus:border-[#5C8392] "
                 type="email"
                 placeholder="E-mail Address"
               />

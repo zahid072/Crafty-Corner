@@ -32,13 +32,13 @@ const Nav = () => {
   );
   return (
     <>
-      <div className="navbar px-0 max-w-[1490px] mx-auto bg-[#ECEDF1]">
+      <div className="navbar max-w-[1490px] mx-auto bg-[#ECEDF1]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="size-11  mr-2"
+                className="size-11 "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -85,7 +85,7 @@ const Nav = () => {
           
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu font-semibold menu-horizontal px-1">{navLink}</ul>
+          <ul className="menu font-semibold menu-horizontal ">{navLink}</ul>
         </div>
         <div className="navbar-end">
           {!navLoader ? (
@@ -96,7 +96,7 @@ const Nav = () => {
                   data-tip={user?.displayName}
                 >
                   <img
-                    className="size-12 cursor-pointer rounded-full mr-3"
+                    className="size-12 cursor-pointer rounded-full "
                     src={
                       (user?.photoURL && user?.photoURL) ||
                       "https://static.vecteezy.com/system/resources/thumbnails/019/879/186/small/user-icon-on-transparent-background-free-png.png"

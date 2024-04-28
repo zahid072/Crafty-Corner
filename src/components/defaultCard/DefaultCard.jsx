@@ -1,9 +1,9 @@
 import React from 'react'
 
-const DefaultCard = () => {
+const DefaultCard = ({crafts}) => {
   return (
     <div>
-      
+      <h1>{crafts.item_name}</h1>
     </div>
   )
 }
