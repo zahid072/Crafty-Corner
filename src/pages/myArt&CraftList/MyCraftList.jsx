@@ -6,7 +6,7 @@ import MyCard from "../../components/myCard/MyCard";
 
 const MyCraftList = () => {
   const [filteredData, setFilteredData] = useState([]);
-  const [reFilter, setReFilter] = useState(false);
+
   const [filterBy, setFilterBy] = useState("");
   const { user } = useContext(AuthContext);
   const { data } = useFetchData();
@@ -32,9 +32,8 @@ const MyCraftList = () => {
       setFilteredData(userAddedData);
     }
     console.log(userAddedData);
-  }, [data, user, reFilter, filterBy]);
+  }, [data, user, filterBy]);
 
-  console.log(reFilter)
 
   return (
     <>
@@ -75,7 +74,7 @@ const MyCraftList = () => {
       </div>
       <div className=" lg:mx-32 mx-2 my-5">
         {filteredData.map((craft) => (
-          <MyCard key={craft._id} crafts={craft} setReFilter={setReFilter}/>
+          <MyCard key={craft._id} crafts={craft} />
         ))}
       </div>
     </>

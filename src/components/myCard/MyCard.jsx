@@ -1,10 +1,11 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { MdDelete, MdModeEdit } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const MyCard = ({ crafts, setReFilter }) => {
+const MyCard = ({ crafts }) => {
   const { item_name, image, price, rating, _id, customization } = crafts;
+  const navigate = useNavigate()
 
 
   const handleDelete = (id)=>{
@@ -15,6 +16,7 @@ const MyCard = ({ crafts, setReFilter }) => {
       .then(data =>{
         
         console.log(data)
+        navigate("/myArt&CraftList")
         
       })
       setReFilter(true)
