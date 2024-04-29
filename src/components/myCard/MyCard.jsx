@@ -1,9 +1,24 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { MdDelete, MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const MyCard = ({ crafts }) => {
+const MyCard = ({ crafts, setReFilter }) => {
   const { item_name, image, price, rating, _id, customization } = crafts;
+
+
+  const handleDelete = (id)=>{
+    fetch(`http://localhost:5000/allArts/${id}`, {
+        method: 'DELETE'
+      })
+      .then(response => response.json())
+      .then(data =>{
+        
+        console.log(data)
+        
+      })
+      setReFilter(true)
+  }
   return (
     <div>
       <div className="mb-6">
@@ -37,14 +52,24 @@ const MyCard = ({ crafts }) => {
               </p>
             </div>
 
-            <div className="flex md:flex-row flex-col justify-start border-t-2 pt-4 md:items-center gap-8">
-              <div className=" w-1/2">
+            <div className="flex md:flex-row flex-col border-t-2 pt-4 md:items-center gap-8">
+              <div className="">
                 <Link to={`/craftDetails/${_id}`}>
                   <button className="px-4 py-3 rounded-lg bg-[#7ea8c8] text-white font-semibold">
                     View details
                   </button>
                 </Link>
               </div>
+              <div>
+                <Link to={`/updateCraft/${_id}`} className="text-2xl w-full text-center btn">
+                  <MdModeEdit />
+                </Link>
+              </div>
+              <button onClick={()=>{
+                    handleDelete(_id)
+                  }} className="text-2xl text-center btn text-red-500">
+                    <MdDelete />
+                  </button>
             </div>
           </div>
         </div>

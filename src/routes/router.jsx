@@ -10,6 +10,7 @@ import MyCraftList from "../pages/myArt&CraftList/MyCraftList";
 import PrivateRouter from "./PrivateRouter";
 import CategoryCraft from "../pages/categoryCraft/CategoryCraft";
 import CraftDetails from "../pages/CraftDetails/CraftDetails";
+import UpdateCraft from "../pages/updateCraft/UpdateCraft";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,14 @@ const router = createBrowserRouter([
             <CraftDetails />
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/updateCraft/:id",
+        element: (
+          <PrivateRouter>
+            <UpdateCraft/>
+          </PrivateRouter>
+        )
       },
     ],
   },
