@@ -99,9 +99,9 @@ const AddCraftItem = () => {
                   }}
                   name="category"
                   required
-                  className="px-3 py-3 w-full bg-[#ffffff] rounded-lg  outline-none text-black font-semibold"
+                  className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
                 >
-                  <option className="text-black bg-gray-100" value="">
+                  <option className="text-black bg-gray-100 " value="">
                     Select Sub Category
                   </option>
                   <option
