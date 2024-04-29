@@ -8,8 +8,8 @@ import { IoIosMailOpen } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className="bg-[#282727] ">
-      <div className="py-5 px-10 border-b flex md:flex-row flex-col justify-between items-center">
+    <div className="bg-[#282727] -mr-3">
+      <div className="py-5 px-10 mx-0 border-b flex md:flex-row flex-col justify-between items-center">
         <a className="btn btn-ghost md:text-3xl text-xl font-bold text-white">
           Crafty Corner
         </a>

@@ -6,33 +6,31 @@ import MyCard from "../../components/myCard/MyCard";
 
 const MyCraftList = () => {
   const [filteredData, setFilteredData] = useState([]);
-
   const [filterBy, setFilterBy] = useState("");
   const { user } = useContext(AuthContext);
-  const { data } = useFetchData();
+  const { data, setReFetch } = useFetchData();
 
+    useEffect(() => {
+      if (user) {
+        const userAddedData = data.filter((crafts) => crafts.email === user.email);
+        if (filterBy === "Yes") {
+          const filterData = userAddedData.filter(
+            (crafts) => crafts.customization === filterBy
+          );
+          setFilteredData(filterData);
+        } else if (filterBy === "No") {
+          const filterData = userAddedData.filter(
+            (crafts) => crafts.customization === filterBy
+          );
+          setFilteredData(filterData);
+        } else {
+          setFilteredData(userAddedData);
+        }
+   
+        console.log(userAddedData);
+      }
+    }, [data, user, filterBy]);
   
-  useEffect(() => {
-    if (!user) {
-      return;
-    }
-  
-    const userAddedData = data.filter((crafts) => crafts.email === user.email);
-    if (filterBy === "Yes") {
-      const filterData = userAddedData.filter(
-        (crafts) => crafts.customization === filterBy
-      );
-      setFilteredData(filterData);
-    } else if (filterBy === "No") {
-      const filterData = userAddedData.filter(
-        (crafts) => crafts.customization === filterBy
-      );
-      setFilteredData(filterData);
-    } else {
-      setFilteredData(userAddedData);
-    }
-    console.log(userAddedData);
-  }, [data, user, filterBy]);
 
 
   return (
@@ -74,7 +72,7 @@ const MyCraftList = () => {
       </div>
       <div className=" lg:mx-32 mx-2 my-5">
         {filteredData.map((craft) => (
-          <MyCard key={craft._id} crafts={craft} />
+          <MyCard key={craft._id} crafts={craft} setReFetch={setReFetch}/>
         ))}
       </div>
     </>

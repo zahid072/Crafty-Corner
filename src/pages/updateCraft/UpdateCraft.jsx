@@ -5,8 +5,9 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useParams } from "react-router-dom";
 
 const UpdateCraft = () => {
-  const [subcategory_Name, setSubcategory_Name] =
-    useState("Landscape_Painting");
+  const [subcategory_Name, setSubcategory_Name] = useState("");
+  const [customization, setCustomization] = useState("");
+  const [stockStatus, setStockStatus] = useState("");
   const [fetchData, setFetchData] = useState({});
   const { id } = useParams();
   const { user } = useContext(AuthContext);
@@ -29,10 +30,8 @@ const UpdateCraft = () => {
     rating,
     price,
     processing_time,
-    customization,
     short_description,
-    stockStatus,
-    _id
+    _id,
   } = fetchData;
 
   const handleAddCoffee = (event) => {
@@ -43,11 +42,9 @@ const UpdateCraft = () => {
     const item_name = form.name.value;
     const rating = form.rating.value;
     const processing_time = form.processing_time.value;
-    const customization = form.customization.value;
     const price = form.price.value;
     const short_description = form.details.value;
     const image = form.photo.value;
-    const stockStatus = form.stock.value;
     const user_name = user.displayName;
     const email = user.email;
 
@@ -78,17 +75,15 @@ const UpdateCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-       
-          toast.success("Successfully updated");
-          
-        
+
+        toast.success("Successfully updated");
       });
   };
   return (
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Add Craft Item || Crafty Corner</title>
+        <title>Update Craft || Crafty Corner</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div data-theme="light" className="bg-[#ECEDF1] ">
@@ -125,15 +120,10 @@ const UpdateCraft = () => {
                     setSubcategory_Name(e.target.value);
                   }}
                   name="category"
+                  value={fetchData?.subcategory_Name}
                   required
                   className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
                 >
-                  <option
-                    className="text-black bg-gray-100 "
-                    value={fetchData?.subcategory_Name}
-                  >
-                    {fetchData?.subcategory_Name}
-                  </option>
                   <option
                     className="text-black bg-gray-100"
                     value="Landscape Painting"
@@ -230,14 +220,27 @@ const UpdateCraft = () => {
                 <span className="label-text font-semibold">Customization</span>
               </label>
               <label className="input-group">
-                <input
-                  type="text"
-                  name="customization"
-                  defaultValue={customization}
+                <select
+                  onChange={(e) => {
+                    setCustomization(e.target.value);
+                  }}
+                  value={fetchData?.customization}
+                  name="category"
                   required
-                  placeholder="Yes or No"
-                  className="input input-bordered w-full bg-white"
-                />
+                  className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
+                >
+                    <option
+                      className="text-black bg-gray-100"
+                      value="Yes"
+                    >
+                      Yes
+                    </option>
+                
+                    <option className="text-black bg-gray-100" value="No">
+                      No
+                    </option>
+                  
+                </select>
               </label>
             </div>
           </div>
@@ -264,14 +267,28 @@ const UpdateCraft = () => {
                 <span className="label-text font-semibold">Stock Status</span>
               </label>
               <label className="input-group">
-                <input
-                  type="text"
-                  name="stock"
-                  defaultValue={stockStatus}
+              <select
+                  onChange={(e) => {
+                    setStockStatus(e.target.value);
+                  }}
+                  value={fetchData?.stockStatus}
+                  name="category"
                   required
-                  placeholder="Stock status"
-                  className="input input-bordered w-full bg-white"
-                />
+                  className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
+                >
+                
+                    <option
+                      className="text-black bg-gray-100"
+                      value="In stock"
+                    >
+                     In stock
+                    </option>
+                
+                    <option className="text-black bg-gray-100" value="Made to Order">
+                       Made to Order
+                    </option>
+             
+                </select>
               </label>
             </div>
           </div>

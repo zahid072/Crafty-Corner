@@ -1,25 +1,40 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { MdDelete, MdModeEdit } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const MyCard = ({ crafts }) => {
+const MyCard = ({ crafts, setReFetch }) => {
   const { item_name, image, price, rating, _id, customization } = crafts;
-  const navigate = useNavigate()
-
 
   const handleDelete = (id)=>{
-    fetch(`https://assignment-10-server-five-bay.vercel.app/allArts/${id}`, {
-        method: 'DELETE'
-      })
-      .then(response => response.json())
-      .then(data =>{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
         
-        console.log(data)
-        navigate("/myArt&CraftList")
-        
-      })
-      setReFilter(true)
+        fetch(`https://assignment-10-server-five-bay.vercel.app/allArts/${id}`, {
+          method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data =>{
+         if(data.deletedCount > 0){
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+          setReFetch(true)
+         }
+        })
+      }
+    });
   }
   return (
     <div>

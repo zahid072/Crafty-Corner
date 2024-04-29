@@ -4,10 +4,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const AddCraftItem = () => {
-  const [subcategory_Name, setSubcategory_Name] =
-    useState("Landscape_Painting");
+  const [subcategory_Name, setSubcategory_Name] = useState("");
+  const [customization, setCustomization] = useState("");
+  const [stockStatus, setStockStatus] = useState("");
   const { user } = useContext(AuthContext);
-  
+
   const handleAddCoffee = (event) => {
     event.preventDefault();
 
@@ -16,14 +17,11 @@ const AddCraftItem = () => {
     const item_name = form.name.value;
     const rating = form.rating.value;
     const processing_time = form.processing_time.value;
-    const customization = form.customization.value;
     const price = form.price.value;
     const short_description = form.details.value;
     const image = form.photo.value;
-    const stockStatus = form.stock.value;
-    const user_name = user.displayName
-    const email = user.email
-   
+    const user_name = user.displayName;
+    const email = user.email;
 
     const newArt = {
       image,
@@ -36,7 +34,7 @@ const AddCraftItem = () => {
       short_description,
       stockStatus,
       user_name,
-      email
+      email,
     };
 
     console.log(newArt);
@@ -197,13 +195,32 @@ const AddCraftItem = () => {
                 <span className="label-text font-semibold">Customization</span>
               </label>
               <label className="input-group">
-                <input
-                  type="text"
-                  name="customization"
+              <select
+                  onChange={(e) => {
+                    setCustomization(e.target.value);
+                  }}
+                  name="category"
                   required
-                  placeholder="Yes or No"
-                  className="input input-bordered w-full bg-white"
-                />
+                  className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
+                >
+                  <option
+                    className="text-black bg-gray-100"
+                    value=""
+                  >
+                    Select Customization
+                  </option>
+                    <option
+                      className="text-black bg-gray-100"
+                      value="Yes"
+                    >
+                      Yes
+                    </option>
+                  
+                    <option className="text-black bg-gray-100" value="No">
+                      No
+                    </option>
+                  
+                </select>
               </label>
             </div>
           </div>
@@ -229,13 +246,29 @@ const AddCraftItem = () => {
                 <span className="label-text font-semibold">Stock Status</span>
               </label>
               <label className="input-group">
-                <input
-                  type="text"
-                  name="stock"
+                <select
+                  onChange={(e) => {
+                    setStockStatus(e.target.value);
+                  }}
+                  name="category"
                   required
-                  placeholder="Stock status"
-                  className="input input-bordered w-full bg-white"
-                />
+                  className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
+                >
+                  <option className="text-black bg-gray-100" value="">
+                    Select Stock Status
+                  </option>
+
+                  <option className="text-black bg-gray-100" value="In stock">
+                    In stock
+                  </option>
+
+                  <option
+                    className="text-black bg-gray-100"
+                    value="Made to Order"
+                  >
+                    Made to Order
+                  </option>
+                </select>
               </label>
             </div>
           </div>
