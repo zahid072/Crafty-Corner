@@ -15,7 +15,7 @@ const UpdateCraft = () => {
     if (!id) {
       return;
     }
-    fetch(`http://localhost:5000/allArts/${id}`)
+    fetch(`https://assignment-10-server-five-bay.vercel.app/allArts/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setFetchData(data);
@@ -32,6 +32,7 @@ const UpdateCraft = () => {
     customization,
     short_description,
     stockStatus,
+    _id
   } = fetchData;
 
   const handleAddCoffee = (event) => {
@@ -67,8 +68,8 @@ const UpdateCraft = () => {
     console.log(newArt);
 
     // send data to the server
-    fetch("http://localhost:5000/allArts", {
-      method: "POST",
+    fetch(`https://assignment-10-server-five-bay.vercel.app/allArts/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -77,10 +78,10 @@ const UpdateCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
-          toast.success("Successfully added");
-          form.reset();
-        }
+       
+          toast.success("Successfully updated");
+          
+        
       });
   };
   return (
@@ -294,7 +295,7 @@ const UpdateCraft = () => {
           </div>
           <input
             type="submit"
-            value="Add Craft"
+            value="Update"
             className="btn btn-block bg-[#5C8392] hover:bg-[#587987] text-white"
           />
         </form>

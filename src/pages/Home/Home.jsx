@@ -22,7 +22,7 @@ const Home = () => {
   // category data
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/subCategory");
+      const response = await fetch("https://assignment-10-server-five-bay.vercel.app/subCategory");
       const data = await response.json();
       setSubCategoryData(data);
     };

@@ -8,7 +8,7 @@ const MyCard = ({ crafts, setReFilter }) => {
 
 
   const handleDelete = (id)=>{
-    fetch(`http://localhost:5000/allArts/${id}`, {
+    fetch(`https://assignment-10-server-five-bay.vercel.app/allArts/${id}`, {
         method: 'DELETE'
       })
       .then(response => response.json())

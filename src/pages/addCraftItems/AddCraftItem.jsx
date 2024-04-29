@@ -42,7 +42,7 @@ const AddCraftItem = () => {
     console.log(newArt);
 
     // send data to the server
-    fetch("http://localhost:5000/allArts", {
+    fetch("https://assignment-10-server-five-bay.vercel.app/allArts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

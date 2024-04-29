@@ -7,7 +7,7 @@ const useFetchData = () => {
 
   const fetchData = async () => {
     const res = await fetch(
-      "http://localhost:5000/allArts"
+      "https://assignment-10-server-five-bay.vercel.app/allArts"
     );
     const jsonData = await res.json();
     setData(jsonData);

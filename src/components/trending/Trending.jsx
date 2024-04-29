@@ -18,7 +18,7 @@ const Trending = () => {
     <div className="flex md:flex-row flex-col-reverse md:gap-0 gap-5 justify-center">
       <div className="md:w-8/12 w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 justify-items-center">
         {sortedData.map((crafts) => (
-          <Link to={`/craftDetails/${crafts._id}`}>
+          <Link key={crafts._id} to={`/craftDetails/${crafts._id}`}>
             <div
               className="h-60 md:w-60 w-[98vw] cursor-pointer rounded bg-cover bg-no-repeat bg-center flex items-center justify-center"
               style={{
