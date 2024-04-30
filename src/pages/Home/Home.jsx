@@ -22,7 +22,9 @@ const Home = () => {
   // category data
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://assignment-10-server-five-bay.vercel.app/subCategory");
+      const response = await fetch(
+        "https://assignment-10-server-five-bay.vercel.app/subCategory"
+      );
       const data = await response.json();
       setSubCategoryData(data);
     };
@@ -282,17 +284,17 @@ const Home = () => {
         <div
           className="py-10 mt-10 bg-cover bg-no-repeat bg-center"
           style={{
-            backgroundImage: `url("https://img.freepik.com/free-vector/abstract-background-with-distorted-line-shapes-white-background-monochrome-sound-line-waves_1217-6083.jpg?size=626&ext=jpg&ga=GA1.1.867424154.1712275200&semt=ais")`,
+            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.01), rgba(0,0,0,0.01)), url("https://img.freepik.com/free-vector/abstract-background-with-distorted-line-shapes-white-background-monochrome-sound-line-waves_1217-6083.jpg?size=626&ext=jpg&ga=GA1.1.867424154.1712275200&semt=ais")`,
           }}
         >
           <div className="flex md:flex-row flex-col gap-5 justify-center  lg:mx-36 md:mx-5 mx-2">
             <div
               className="md:w-8/12 w-full p-4 rounded"
               style={{
-                backgroundImage: `url("https://i.ibb.co/rbZgnxn/craft.png")`,
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.01), rgba(0,0,0,0.01)), url("https://i.ibb.co/rbZgnxn/craft.png")`,
               }}
             >
-              <div className="bg-[#f2ecec62] p-4 border rounded text-[#2E557C] h-full backdrop-blur-sm">
+              <div className="bg-[#f2ecec62] p-4 border rounded text-[#253f58] h-full backdrop-blur-sm">
                 <h1 className="text-center md:text-4xl font-semibold max-w-72 md:ml-16">
                   Crafts according to your needs
                 </h1>
@@ -304,20 +306,20 @@ const Home = () => {
             <div
               className="md:w-1/3 w-full rounded p-5 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `url("https://media.istockphoto.com/id/1288020112/vector/liquid-style-colorful-pastel-abstract-background-with-elements-vector.jpg?s=612x612&w=0&k=20&c=RVNXsYbufzsIJ2A5bGV4wWY9KJbErCj8DPCWQKOdfjs=")`,
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.01), rgba(0,0,0,0.01)), url("https://media.istockphoto.com/id/1288020112/vector/liquid-style-colorful-pastel-abstract-background-with-elements-vector.jpg?s=612x612&w=0&k=20&c=RVNXsYbufzsIJ2A5bGV4wWY9KJbErCj8DPCWQKOdfjs=")`,
               }}
             >
               <div className="p-5 border space-y-4 rounded bg-[#ffffff5e]">
-                <h1 className="text-3xl font-semibold text-center">
+                <h1 className="text-3xl font-semibold text-black text-center">
                   Subscribe
                 </h1>
-                <p className="text-gray-900">
+                <p className="text-black">
                   Register to our newsletter & get 20% OFF for your first order
                 </p>
                 <div className="flex items-center">
                   <input
                     type="text"
-                    placeholder="@email.com"
+                    placeholder="user@email.com"
                     className="input w-full"
                   />
                   <MdOutlineMailOutline className="text-xl -ml-7" />
