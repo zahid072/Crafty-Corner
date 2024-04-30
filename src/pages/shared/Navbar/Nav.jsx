@@ -60,16 +60,16 @@ const Nav = ({ themes, handleThemeToggle }) => {
             >
               <div
                 onClick={handleThemeToggle}
-                className="mr-4 text-3xl cursor-pointer min-[375px]:hidden block w-[61.5px]"
+                className="mr-4 text-3xl cursor-pointer min-[375px]:hidden block mb-4 w-[61.5px]"
               >
                 {themes === "light" && (
-                  <div className="border rounded-full pr-8 px-2 py-1 border-black bg-white">
+                  <div className="border-2 rounded-full pr-8 px-2 py-1 border-black">
                     <MdOutlineLightMode className="size-5" />
                   </div>
                 )}
                 {themes === "dark" && (
-                  <div className="border rounded-full pl-8 pr-2 py-1 border-white bg-slate-200">
-                    <MdDarkMode className="size-5" />
+                  <div className="border-2 rounded-full pl-8 pr-2 py-1 border-gray-100 bg-black">
+                    <MdDarkMode className="size-5 text-white" />
                   </div>
                 )}
               </div>
@@ -115,13 +115,13 @@ const Nav = ({ themes, handleThemeToggle }) => {
             className="mr-4 text-3xl cursor-pointer max-[375px]:hidden block"
           >
             {themes === "light" && (
-              <div className="border rounded-full pr-8 px-2 py-1 border-black">
+              <div className="border-2 rounded-full pr-8 px-2 py-1 border-black">
                 <MdOutlineLightMode className="size-5" />
               </div>
             )}
             {themes === "dark" && (
-              <div className="border rounded-full pl-8 pr-2 py-1 border-gray-300 bg-slate-100">
-                <MdDarkMode className="size-5 text-black" />
+              <div className="border-2 rounded-full pl-8 pr-2 py-1 border-gray-100 bg-black">
+                <MdDarkMode className="size-5 text-white" />
               </div>
             )}
           </div>

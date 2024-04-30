@@ -10,6 +10,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 const Home = () => {
   const [subCategoryData, setSubCategoryData] = useState([]);
   const [sortedData, setSortedData] = useState([]);
+  const [subLoader, setSubLoader] = useState(true);
   const { data, loader } = useFetchData();
   // new arrivals data
   useEffect(() => {
@@ -27,6 +28,9 @@ const Home = () => {
       );
       const data = await response.json();
       setSubCategoryData(data);
+      if(data){
+        setSubLoader(false)
+      }
     };
     fetchData();
   }, []);
@@ -164,7 +168,7 @@ const Home = () => {
           <h1 className="md:pt-14 pt-10 pb-5 text-center md:text-4xl text-2xl font-medium">
             Browse by Category
           </h1>
-          {loader && (
+          {subLoader && (
             <svg
               className="mx-auto"
               version="1.1"
