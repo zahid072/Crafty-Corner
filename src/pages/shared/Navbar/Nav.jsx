@@ -14,14 +14,14 @@ const Nav = ({ themes, handleThemeToggle }) => {
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      {user && (
-        <li>
-          <NavLink to={"/addCraftItem"}>Add Craft Item</NavLink>
-        </li>
-      )}
       <li>
         <NavLink to={"/allArt&CraftItems"}>All Art & craft</NavLink>
       </li>
+
+      <li>
+        <NavLink to={"/addCraftItem"}>Add Craft Item</NavLink>
+      </li>
+
       {user && (
         <li>
           <NavLink to={"/myArt&CraftList"}>My Art & Craft List</NavLink>
@@ -68,9 +68,7 @@ const Nav = ({ themes, handleThemeToggle }) => {
                   </div>
                 )}
                 {themes === "dark" && (
-                  <div
-                    className="border rounded-full pl-8 pr-2 py-1 border-white bg-slate-200"
-                  >
+                  <div className="border rounded-full pl-8 pr-2 py-1 border-white bg-slate-200">
                     <MdDarkMode className="size-5" />
                   </div>
                 )}
@@ -101,9 +99,12 @@ const Nav = ({ themes, handleThemeToggle }) => {
             </ul>
           </div>
 
-          <a className="btn btn-ghost md:text-3xl text-xl font-bold">
+          <Link
+            to={"/"}
+            className="btn btn-ghost md:text-3xl text-xl font-bold"
+          >
             Crafty Corner
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu font-semibold menu-horizontal ">{navLink}</ul>
