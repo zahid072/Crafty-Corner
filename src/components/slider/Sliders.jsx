@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Fade} from "react-awesome-reveal";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation"; // Import Swiper styles
@@ -47,7 +48,7 @@ const Sliders = () => {
                     className="leading-snug "
                     to={`/craftDetails/${arts_craft._id}`}
                   >
-                    {arts_craft.item_name}
+                    <Fade>{arts_craft.item_name}</Fade>
                   </Link>
                 </h1>
                 <div className="md:flex md:gap-8 gap-6 items-center text-white text-xl font-semibold mt-4 animate__animated animate__fadeInUp ">

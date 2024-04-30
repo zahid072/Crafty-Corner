@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import SubCategoryPageCard from "../../components/subCategoryPageCard/SubCategoryPageCard";
 import { Helmet } from "react-helmet";
+import { Fade } from "react-awesome-reveal";
 
 const CategoryCraft = () => {
   const [filterData, setFilterData] = useState([]);
@@ -33,7 +34,7 @@ const CategoryCraft = () => {
         }}
       >
         <h1 className="text-white md:text-4xl text-2xl font-semibold">
-          {cateName}
+          <Fade>{cateName}</Fade>
         </h1>
       </div>
       {loader && (

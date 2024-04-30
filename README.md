@@ -7,7 +7,7 @@ Sub-Category : Painting and Drawing
 
 USE NPM Package:
  1. React tooltip
- 2. Lottie react
+ 2. React Awesome Reveal
 
 Description:
 1. Users can add, access, update, and delete their listed items, ensuring privacy and control over their own content.

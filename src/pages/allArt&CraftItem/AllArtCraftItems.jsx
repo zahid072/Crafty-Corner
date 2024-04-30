@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import useFetchData from "../../hooks/useFetchData";
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const AllArtCraftItems = () => {
   const { data, loader } = useFetchData();
@@ -21,7 +22,7 @@ const AllArtCraftItems = () => {
         }}
       >
         <h1 className="text-white md:text-4xl text-2xl font-semibold">
-          All Art & Craft
+          <Fade>All Art & Craft</Fade>
         </h1>
       </div>
 
