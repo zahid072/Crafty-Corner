@@ -38,7 +38,7 @@ const CraftDetails = () => {
         <title>Craft Details || Crafty Corner</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="w-full h-full flex gap-12 md:flex-row flex-col mx-2">
+      <div data-theme="light" className="w-full h-full flex gap-12 md:flex-row flex-col mx-2 my-10">
         <div className="md:w-1/2 w-full md:h-[600px] bg-[#F3F3F3] rounded-xl flex items-center justify-center">
           <img src={image} alt="" className=" md:h-[550px]" />
         </div>

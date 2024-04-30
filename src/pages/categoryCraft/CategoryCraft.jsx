@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
-import DefaultCard from "../../components/defaultCard/DefaultCard";
+import SubCategoryPageCard from "../../components/subCategoryPageCard/SubCategoryPageCard";
 
 const CategoryCraft = () => {
   const [filterData, setFilterData] = useState([]);
@@ -141,7 +141,7 @@ const CategoryCraft = () => {
       )}
       <div className="grid lg:grid-cols-3 grid-cols-1 justify-items-center md:mx-32 gap-5 my-10 ">
         {filterData.map((art_craft) => (
-          <DefaultCard crafts={art_craft} key={art_craft._id} />
+          <SubCategoryPageCard crafts={art_craft} key={art_craft._id}/>
         ))}
       </div>
     </div>

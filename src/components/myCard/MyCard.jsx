@@ -2,12 +2,13 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import { MdDelete, MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 
 const MyCard = ({ crafts, setReFetch }) => {
   const { item_name, image, price, rating, _id, customization } = crafts;
 
-  const handleDelete = (id)=>{
+  const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -15,27 +16,29 @@ const MyCard = ({ crafts, setReFetch }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        
-        fetch(`https://assignment-10-server-five-bay.vercel.app/allArts/${id}`, {
-          method: 'DELETE'
-        })
-        .then(response => response.json())
-        .then(data =>{
-         if(data.deletedCount > 0){
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success"
+        fetch(
+          `https://assignment-10-server-five-bay.vercel.app/allArts/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              setReFetch(true);
+            }
           });
-          setReFetch(true)
-         }
-        })
       }
     });
-  }
+  };
   return (
     <div>
       <div className="mb-6">
@@ -78,15 +81,28 @@ const MyCard = ({ crafts, setReFetch }) => {
                 </Link>
               </div>
               <div>
-                <Link to={`/updateCraft/${_id}`} className="text-2xl w-full text-center btn">
+                <Link
+                  to={`/updateCraft/${_id}`}
+                  data-tooltip-id="my-tooltip"
+                data-tooltip-content={"Update"}
+                data-tooltip-place="top"
+                  className="text-2xl w-full text-center btn"
+                >
                   <MdModeEdit />
                 </Link>
               </div>
-              <button onClick={()=>{
-                    handleDelete(_id)
-                  }} className="text-2xl text-center btn text-red-500">
-                    <MdDelete />
-                  </button>
+              <button
+                onClick={() => {
+                  handleDelete(_id);
+                }}
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={"Delete"}
+                data-tooltip-place="top"
+                className="text-2xl text-center btn text-red-500"
+              >
+                <MdDelete />
+                <Tooltip id="my-tooltip"/>
+              </button>
             </div>
           </div>
         </div>
