@@ -5,10 +5,11 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useParams } from "react-router-dom";
 
 const UpdateCraft = () => {
+  const [fetchData, setFetchData] = useState({});
+  const [raFetch, setRaFetch] = useState(false);
   const [subcategory_Name, setSubcategory_Name] = useState("");
   const [customization, setCustomization] = useState("");
   const [stockStatus, setStockStatus] = useState("");
-  const [fetchData, setFetchData] = useState({});
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   console.log(id);
@@ -20,8 +21,12 @@ const UpdateCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         setFetchData(data);
+        setRaFetch(true);
+        setCustomization(data.customization);
+        setStockStatus(data.stockStatus);
+        setSubcategory_Name(data.subcategory_Name);
       });
-  }, [id]);
+  }, [id, raFetch]);
   console.log(fetchData);
 
   const {
@@ -75,7 +80,6 @@ const UpdateCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-
         toast.success("Successfully updated");
       });
   };
@@ -120,43 +124,55 @@ const UpdateCraft = () => {
                     setSubcategory_Name(e.target.value);
                   }}
                   name="category"
-                  value={fetchData?.subcategory_Name}
-                  required
                   className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
                 >
                   <option
                     className="text-black bg-gray-100"
                     value="Landscape Painting"
+                    selected={
+                      fetchData?.subcategory_Name === "Landscape Painting"
+                    }
                   >
                     Landscape Painting
                   </option>
                   <option
                     className="text-black bg-gray-100"
                     value="Portrait Drawing"
+                    selected={
+                      fetchData?.subcategory_Name === "Portrait Drawing"
+                    }
                   >
                     Portrait Drawing
                   </option>
                   <option
-                    className="text-black bg-gray-100 "
+                    className="text-black bg-gray-100"
                     value="Watercolour Painting"
+                    selected={
+                      fetchData?.subcategory_Name === "Watercolour Painting"
+                    }
                   >
                     Watercolour Painting
                   </option>
                   <option
-                    className="text-black bg-gray-100 "
+                    className="text-black bg-gray-100"
                     value="Oil Painting"
+                    selected={fetchData?.subcategory_Name === "Oil Painting"}
                   >
                     Oil Painting
                   </option>
                   <option
-                    className="text-black bg-gray-100 "
+                    className="text-black bg-gray-100"
                     value="Charcoal Sketching"
+                    selected={
+                      fetchData?.subcategory_Name === "Charcoal Sketching"
+                    }
                   >
                     Charcoal Sketching
                   </option>
                   <option
-                    className="text-black bg-gray-100 "
+                    className="text-black bg-gray-100"
                     value="Cartoon Drawing"
+                    selected={fetchData?.subcategory_Name === "Cartoon Drawing"}
                   >
                     Cartoon Drawing
                   </option>
@@ -224,22 +240,24 @@ const UpdateCraft = () => {
                   onChange={(e) => {
                     setCustomization(e.target.value);
                   }}
-                  value={fetchData?.customization}
                   name="category"
-                  required
                   className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
                 >
-                    <option
-                      className="text-black bg-gray-100"
-                      value="Yes"
-                    >
-                      Yes
-                    </option>
-                
-                    <option className="text-black bg-gray-100" value="No">
-                      No
-                    </option>
-                  
+                  <option
+                    selected={fetchData?.customization === "Yes"}
+                    className="text-black bg-gray-100"
+                    value="Yes"
+                  >
+                    Yes
+                  </option>
+
+                  <option
+                    selected={fetchData?.customization === "No"}
+                    className="text-black bg-gray-100"
+                    value="No"
+                  >
+                    No
+                  </option>
                 </select>
               </label>
             </div>
@@ -267,27 +285,28 @@ const UpdateCraft = () => {
                 <span className="label-text font-semibold">Stock Status</span>
               </label>
               <label className="input-group">
-              <select
+                <select
                   onChange={(e) => {
                     setStockStatus(e.target.value);
                   }}
-                  value={fetchData?.stockStatus}
                   name="category"
-                  required
                   className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
                 >
-                
-                    <option
-                      className="text-black bg-gray-100"
-                      value="In stock"
-                    >
-                     In stock
-                    </option>
-                
-                    <option className="text-black bg-gray-100" value="Made to Order">
-                       Made to Order
-                    </option>
-             
+                  <option
+                    selected={fetchData?.stockStatus === "In stock"}
+                    className="text-black bg-gray-100"
+                    value="In stock"
+                  >
+                    In stock
+                  </option>
+
+                  <option
+                    selected={fetchData?.stockStatus === "Made to Order"}
+                    className="text-black bg-gray-100"
+                    value="Made to Order"
+                  >
+                    Made to Order
+                  </option>
                 </select>
               </label>
             </div>
