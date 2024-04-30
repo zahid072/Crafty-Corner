@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import SubCategoryPageCard from "../../components/subCategoryPageCard/SubCategoryPageCard";
+import { Helmet } from "react-helmet";
 
 const CategoryCraft = () => {
   const [filterData, setFilterData] = useState([]);
@@ -20,6 +21,11 @@ const CategoryCraft = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Category Craft || Crafty Corner</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div
         className="w-full h-36 flex items-center justify-center bg-cover bg-no-repeat bg-center"
         style={{

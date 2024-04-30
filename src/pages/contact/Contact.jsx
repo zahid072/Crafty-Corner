@@ -37,12 +37,12 @@ const Contact = () => {
         <p className=" md:text-3xl flex md:flex-col flex-row gap-5">
           <FaLocationDot className="text-[#5C8392] text-center md:text-5xl text-3xl md:ml-7" />
           <span>Location</span>
-          <span className="text-xl">The Grove, Los Angeles, CA</span>
+          <span className="text-xl">Dhaka, Bangladesh</span>
         </p>
         <p className="text-center md:text-3xl flex md:flex-col flex-row gap-5">
           <BsTelephone className="text-[#5C8392] text-center md:text-5xl text-3xl md:ml-5" />
           <span>Phone</span>
-          <span className="text-xl">+958545556</span>
+          <span className="text-xl">+880 01358545556</span>
         </p>
         <p className=" md:text-3xl flex md:flex-col flex-row gap-5">
           {" "}
@@ -57,10 +57,7 @@ const Contact = () => {
           Send a <span className="text-[#5C8392]">message</span>
         </h1>
         <p className="max-w-3xl mx-auto text-gray-500 text-center mt-5">
-          Connect with us at Estates for expert assistance in navigating the
-          commercial real estate market. Whether you're looking to lease, buy,
-          or sell, our experienced team is here to guide you every step of the
-          way. Reach out today to start your journey towards property success.
+        Have a question or need assistance? Reach out to us at Crafty Corner! We're here to help with inquiries, orders, collaborations, and more. Contact us today!
         </p>
         <form onSubmit={handleSendMessage} className=" p-10 max-w-4xl mx-auto">
           <div className="flex md:flex-row flex-col gap-5 *:w-full *:border *:border-gray-300">
