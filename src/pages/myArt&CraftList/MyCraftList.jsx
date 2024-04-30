@@ -70,6 +70,9 @@ const MyCraftList = () => {
           </option>
         </select>
       </div>
+      {
+        filteredData.length < 1 && <h1 className="text-center text-red-400 ">You didn't add any art & craft items.</h1>
+      }
       <div className=" lg:mx-32 mx-2 my-5">
         {filteredData.map((craft) => (
           <MyCard key={craft._id} crafts={craft} setReFetch={setReFetch}/>

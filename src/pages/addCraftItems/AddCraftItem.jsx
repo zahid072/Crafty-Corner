@@ -20,8 +20,8 @@ const AddCraftItem = () => {
     const price = form.price.value;
     const short_description = form.details.value;
     const image = form.photo.value;
-    const user_name = user.displayName;
-    const email = user.email;
+    const user_name = form.user_name.value;
+    const email = form.email.value;
 
     const newArt = {
       image,
@@ -195,7 +195,7 @@ const AddCraftItem = () => {
                 <span className="label-text font-semibold">Customization</span>
               </label>
               <label className="input-group">
-              <select
+                <select
                   onChange={(e) => {
                     setCustomization(e.target.value);
                   }}
@@ -203,23 +203,16 @@ const AddCraftItem = () => {
                   required
                   className="px-3 py-3 w-full bg-[#ffffff] rounded-lg outline-none text-black font-semibold"
                 >
-                  <option
-                    className="text-black bg-gray-100"
-                    value=""
-                  >
+                  <option className="text-black bg-gray-100" value="">
                     Select Customization
                   </option>
-                    <option
-                      className="text-black bg-gray-100"
-                      value="Yes"
-                    >
-                      Yes
-                    </option>
-                  
-                    <option className="text-black bg-gray-100" value="No">
-                      No
-                    </option>
-                  
+                  <option className="text-black bg-gray-100" value="Yes">
+                    Yes
+                  </option>
+
+                  <option className="text-black bg-gray-100" value="No">
+                    No
+                  </option>
                 </select>
               </label>
             </div>
@@ -285,6 +278,38 @@ const AddCraftItem = () => {
                   required
                   placeholder="Photo URL"
                   className="input input-bordered w-full bg-white"
+                />
+              </label>
+            </div>
+          </div>
+          <div className="md:flex md:mb-8">
+            <div className="form-control md:w-1/2 ">
+              <label className="label">
+                <span className="label-text font-semibold">User Name</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="text"
+                  name="user_name"
+                  value={user?.displayName}
+                  required
+                  placeholder="User Name"
+                  className="input input-bordered w-full font-semibold text-gray-500 bg-white"
+                />
+              </label>
+            </div>
+            <div className="form-control md:w-1/2 md:ml-4">
+              <label className="label">
+                <span className="label-text font-semibold">Email</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="email"
+                  name="email"
+                  value={user?.email}
+                  required
+                  placeholder="email"
+                  className="input input-bordered w-full font-semibold text-gray-500 bg-white"
                 />
               </label>
             </div>
