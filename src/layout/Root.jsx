@@ -12,7 +12,7 @@ const Root = () => {
 
   return (
     <div data-theme={themes}>
-      <div className="bg-[#ECEDF1] py-1 w-full mr-0">
+      <div className={`py-1 w-full mr-0 ${themes === "dark"? "text-white" : "text-black"}`}>
         <Nav handleThemeToggle={handleThemeToggle} themes={themes}/>
       </div>
       <div>

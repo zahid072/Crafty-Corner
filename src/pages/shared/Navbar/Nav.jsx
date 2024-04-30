@@ -35,7 +35,7 @@ const Nav = ({ themes, handleThemeToggle }) => {
   );
   return (
     <>
-      <div className="navbar w-full mr-0 bg-[#ECEDF1]">
+      <div className="navbar w-full mr-0 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden">
@@ -63,13 +63,15 @@ const Nav = ({ themes, handleThemeToggle }) => {
                 className="mr-4 text-3xl cursor-pointer min-[375px]:hidden block w-[61.5px]"
               >
                 {themes === "light" && (
-                  <div className="border rounded-full pr-8 px-2 py-1 border-black">
+                  <div className="border rounded-full pr-8 px-2 py-1 border-black bg-white">
                     <MdOutlineLightMode className="size-5" />
                   </div>
                 )}
                 {themes === "dark" && (
-                  <div className="border rounded-full pl-8 pr-2 py-1 border-white bg-slate-200">
-                    <MdDarkMode className="size-5 text-black" />
+                  <div
+                    className="border rounded-full pl-8 pr-2 py-1 border-white bg-slate-200"
+                  >
+                    <MdDarkMode className="size-5" />
                   </div>
                 )}
               </div>
@@ -99,14 +101,12 @@ const Nav = ({ themes, handleThemeToggle }) => {
             </ul>
           </div>
 
-          <a className="btn btn-ghost md:text-3xl text-black text-xl font-bold">
+          <a className="btn btn-ghost md:text-3xl text-xl font-bold">
             Crafty Corner
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu font-semibold menu-horizontal text-black">
-            {navLink}
-          </ul>
+          <ul className="menu font-semibold menu-horizontal ">{navLink}</ul>
         </div>
         <div className="navbar-end">
           <div
@@ -119,7 +119,7 @@ const Nav = ({ themes, handleThemeToggle }) => {
               </div>
             )}
             {themes === "dark" && (
-              <div className="border rounded-full pl-8 pr-2 py-1 border-black">
+              <div className="border rounded-full pl-8 pr-2 py-1 border-gray-300 bg-slate-100">
                 <MdDarkMode className="size-5 text-black" />
               </div>
             )}
