@@ -1,6 +1,6 @@
 Site : Crafty Corner
 
-Live : https://a10-crafty-corner.netlify.app/
+Live : https://a10-crafty-corner.netlify.app
 
 Theme : Art & Craft Store
 Sub-Category : Painting and Drawing
